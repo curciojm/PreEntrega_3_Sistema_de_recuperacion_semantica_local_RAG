@@ -1,7 +1,8 @@
 from pydantic import BaseModel, Field
 from typing import List
+from enum import Enum
 
-# CONTEXTO hacer referencia a los documentos tambien
+
 class RespuestaLLM(BaseModel):
     """Lo que el LLM debe generar, parseado directamente de su output."""
     respuesta: str = Field(
@@ -14,3 +15,18 @@ class RAGResponse(BaseModel):
     respuesta: str
     fuentes: List[str] = Field(description="Archivos de origen de los fragmentos usados como contexto")
     fragmentos_recuperados: int
+
+
+# Errores posibles
+class LLMErrorType(str, Enum):
+    """Tipos de errores utilizados para clasificar las excepciones."""
+    RATE_LIMIT = "rate_limit"
+    UNKNOWN = "unknown"
+
+## Excepción personalizada para unificar el manejo de errores del cliente.
+class LLMError(Exception):
+    """Permite clasificar el error y proporcionar un mensaje legible al usuario."""
+    def __init__(self, error_type: str, message: str):
+        self.error_type = error_type
+        self.message = message
+        super().__init__(message)
