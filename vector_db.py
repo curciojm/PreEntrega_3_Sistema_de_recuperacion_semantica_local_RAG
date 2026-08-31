@@ -1,8 +1,9 @@
 import os
+
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
-from setup import documentos_procesados
 
+from setup import documentos_procesados
 
 # Creación de la base vectorial
 PERSIST_DIR = "./vectors_db"
@@ -21,7 +22,7 @@ if ya_existe_indice:
         collection_name=COLLECTION_NAME,
         embedding_function=embeddings,
         persist_directory=PERSIST_DIR,
-        collection_metadata={"hnsw:space": "cosine"}
+        collection_metadata={"hnsw:space": "cosine"},
     )
 else:
     print("\n🆕 No hay índice previo — indexando documentos por primera vez")
@@ -30,7 +31,7 @@ else:
         embedding=embeddings,
         collection_name=COLLECTION_NAME,
         persist_directory=PERSIST_DIR,
-        collection_metadata={"hnsw:space": "cosine"}
+        collection_metadata={"hnsw:space": "cosine"},
     )
 
 print(f"\n📦 Documentos en la colección: {vectors_db._collection.count()}\n")

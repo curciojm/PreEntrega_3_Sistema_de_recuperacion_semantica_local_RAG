@@ -1,13 +1,11 @@
-from chunking import DocumentProcessor
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain_core.documents import Document
 
+from chunking import DocumentProcessor
+
 # Ingesta de los datos y procesamiento
 loader = DirectoryLoader(
-    "data",
-    glob="*.txt",
-    loader_cls=TextLoader,
-    loader_kwargs={"encoding": "utf-8"}
+    "data", glob="*.txt", loader_cls=TextLoader, loader_kwargs={"encoding": "utf-8"}
 )
 
 documentos_crudos = loader.load()
@@ -20,12 +18,10 @@ def procesar_documentos(documentos_crudos):
         chunks = processor.process_document(documento.page_content)
         for chunk in chunks:
             documentos_procesados.append(
-                Document(
-                    page_content=chunk,
-                    metadata=documento.metadata
-                )
+                Document(page_content=chunk, metadata=documento.metadata)
             )
 
     return documentos_procesados
+
 
 documentos_procesados = procesar_documentos(documentos_crudos)

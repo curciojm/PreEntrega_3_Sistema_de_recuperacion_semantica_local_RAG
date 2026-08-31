@@ -1,7 +1,5 @@
 from langchain_core.prompts import ChatPromptTemplate
 
-
-
 SYSTEM_PROMPT = """Eres un profesor universitario especializado en metodología
 de la investigación y estadística.
 
@@ -24,7 +22,9 @@ Tu única fuente de verdad es el CONTEXTO proporcionado.
 {formato}
 """
 
-prompt = ChatPromptTemplate.from_messages([
-    ("system", SYSTEM_PROMPT),
-    ("human", "CONTEXTO:\n{contexto}\n\nPREGUNTA: {pregunta}"),
-])
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", SYSTEM_PROMPT),
+        ("human", "CONTEXTO:\n{contexto}\n\nPREGUNTA: {pregunta}"),
+    ]
+)
