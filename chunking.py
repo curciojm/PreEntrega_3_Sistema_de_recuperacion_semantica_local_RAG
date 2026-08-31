@@ -12,6 +12,7 @@ class DocumentProcessor:
         self.splitter = RecursiveCharacterTextSplitter(
             chunk_size=500,
             chunk_overlap=50,
+            # El tamaño de los chunks se mide en tokens mediante tiktoken.
             length_function=self.calculate_tokens,
             separators=["\n\n", "\n", ".", " ", ""],
         )

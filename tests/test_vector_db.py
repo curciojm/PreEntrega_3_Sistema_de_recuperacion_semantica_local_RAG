@@ -2,7 +2,6 @@ from vector_db import vectors_db
 
 
 def test_vector_db_tiene_documentos():
-    # La colección debe contener documentos
     cantidad = vectors_db._collection.count()
 
     assert cantidad > 0

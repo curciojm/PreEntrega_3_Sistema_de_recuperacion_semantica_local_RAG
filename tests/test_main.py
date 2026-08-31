@@ -8,7 +8,6 @@ from schemas import RAGResponse, RespuestaLLM
 @pytest.mark.asyncio
 async def test_get_rag_response(monkeypatch):
 
-    # simula que encuentra dos documentos
     documentos = [
         Document(
             page_content="La regresión permite realizar predicciones.",
@@ -28,9 +27,6 @@ async def test_get_rag_response(monkeypatch):
         async def ainvoke(self, datos):
             return RespuestaLLM(respuesta="La regresión permite realizar predicciones.")
 
-    # incluido en pytest
-    # set attr reemplaza temporalmente retriever por MockRetriever
-    # main.retriever ruta del atributo original que se simula
     monkeypatch.setattr("main.retriever", MockRetriever())
     monkeypatch.setattr("main.chain", MockChain())
 

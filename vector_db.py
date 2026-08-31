@@ -22,6 +22,7 @@ if ya_existe_indice:
         collection_name=COLLECTION_NAME,
         embedding_function=embeddings,
         persist_directory=PERSIST_DIR,
+        # Se utiliza distancia coseno para medir la similitud entre embeddings.
         collection_metadata={"hnsw:space": "cosine"},
     )
 else:
