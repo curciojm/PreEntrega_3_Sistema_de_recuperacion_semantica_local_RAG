@@ -57,7 +57,7 @@ El proyecto utiliza la siguiente variable de entorno:
 
 * `GOOGLE_API_KEY`
 
-Crear un archivo `.env` y completar la API key correspondiente.
+Crear un archivo `.env` a partir de `.env.example` y completar la API key correspondiente, si no se encuentra configurada como variable de entorno del sistema
 
 La API key real no se incluye en el repositorio.
 
@@ -121,6 +121,20 @@ Actualmente se contemplan:
 * `UNKNOWN`: error no contemplado específicamente.
 
 Los errores `429` provenientes de `ClientError` de Google GenAI son identificados como errores de límite de solicitudes.
+
+## Logging
+
+Se incorporó el módulo estándar `logging` de Python para registrar eventos relevantes durante la ejecución del pipeline.
+
+Los mensajes se clasifican según su nivel de importancia:
+
+* `INFO`: información sobre el procesamiento, como creación de chunks, carga de la base vectorial y cantidad de fragmentos recuperados.
+* `ERROR`: errores ocurridos durante la ejecución del pipeline.
+
+La configuración utiliza el nivel `INFO`, por lo que se muestran en consola los mensajes `INFO` y los niveles superiores (`WARNING`, `ERROR` y `CRITICAL`).
+
+Los logs permiten observar el funcionamiento del sistema durante la ejecución y facilitan la identificación de errores.
+
 
 ## Testing
 
@@ -200,6 +214,7 @@ El formateo automático se utiliza para mantener una estructura consistente del 
 │   ├── Pagano 2006, correlacion y regresion.md
 │   ├── Sampieri 2018, cap 3 planteamiento del problema en la ruta cuantitativa.md
 │   └── Sampieri 2018, cap 7 diseño experimental.md
+│
 ├── tests/                      # Pruebas automatizadas
 │   ├── test_chunking.py        # Tests del procesamiento y chunking
 │   ├── test_vector_db.py       # Tests de la base vectorial
@@ -213,6 +228,7 @@ El formateo automático se utiliza para mantener una estructura consistente del 
 ├── chunking.py                 # Limpieza y división de documentos
 ├── errors.py                   # Clasificación y manejo de errores
 ├── main.py                     # Orquestación y punto de entrada principal
+├── logging_config.py           # Configuración del sistema de logs
 ├── prompt_config.py            # Configuración del prompt
 ├── retriever.py                # Configuración del retriever
 ├── schemas.py                  # Modelos Pydantic y tipos de error

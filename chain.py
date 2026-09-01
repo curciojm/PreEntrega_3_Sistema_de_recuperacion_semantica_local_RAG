@@ -7,9 +7,8 @@ from schemas import RespuestaLLM
 parser_llm = PydanticOutputParser(pydantic_object=RespuestaLLM)
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash-lite", temperature=0.5, max_tokens=500
+    model="gemini-2.5-flash-lite", temperature=0.4, max_tokens=500
 )
-
 
 def formatear_documentos(docs) -> str:
     return "\n\n---\n\n".join(
