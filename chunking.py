@@ -6,7 +6,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from logging_config import logger
 
 
-
 # Procesador del documento: limpieza y chunking
 class DocumentProcessor:
     def __init__(self, model_encoding: str = "cl100k_base"):
@@ -39,6 +38,5 @@ class DocumentProcessor:
 
         for i, chunk in enumerate(chunks):
             token_count = self.calculate_tokens(chunk)
-            #print(f"Chunk {i} creado: {token_count} tokens.")
             logger.info(f"Chunk {i} creado: {token_count} tokens.")
         return chunks

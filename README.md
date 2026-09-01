@@ -205,7 +205,7 @@ Para analizar el código sin modificarlo:
 ruff check .
 ```
 
-El formateo automático se utiliza para mantener una estructura consistente del código, mientras que las sugerencias de `ruff check` se revisan manualmente.
+El formateo automático se utiliza para mantener una estructura consistente del código, mientras que las sugerencias de `ruff check` se revisaron manualmente.
 
 ## Estructura del proyecto
 

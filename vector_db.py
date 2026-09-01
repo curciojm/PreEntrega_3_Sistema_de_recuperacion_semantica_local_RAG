@@ -6,14 +6,11 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from logging_config import logger
 from setup import documentos_procesados
 
-
 # Creación de la base vectorial
 PERSIST_DIR = "./vectors_db"
 COLLECTION_NAME = "Statistics_and_methodolgy_texts"
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 ya_existe_indice = os.path.exists(PERSIST_DIR) and len(os.listdir(PERSIST_DIR)) > 0
 
@@ -40,5 +37,4 @@ else:
     )
 
 cantidad_documentos = vectors_db._collection.count()
-
 logger.info(f"Creada la base con: {cantidad_documentos} documentos")

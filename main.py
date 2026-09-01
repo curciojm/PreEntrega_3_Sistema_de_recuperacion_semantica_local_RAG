@@ -1,8 +1,8 @@
 import asyncio
 
-from logging_config import logger
 from chain import chain, formatear_documentos, parser_llm
 from errors import classify_error
+from logging_config import logger
 from retriever import retriever
 from schemas import RAGResponse, RespuestaLLM
 
@@ -10,7 +10,6 @@ from schemas import RAGResponse, RespuestaLLM
 # Orquestación
 async def get_rag_response(query: str) -> RAGResponse:
     try:
-
         logger.info(f"Procesando consulta: {query}")
 
         docs = await retriever.ainvoke(query)
@@ -24,7 +23,6 @@ async def get_rag_response(query: str) -> RAGResponse:
                 "formato": parser_llm.get_format_instructions(),
             }
         )
-        
 
         fuentes = sorted({d.metadata.get("source", "desconocida") for d in docs})
         logger.info(f"Fragmentos recuperados: {len(docs)}")

@@ -10,6 +10,7 @@ llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash-lite", temperature=0.4, max_tokens=500
 )
 
+
 def formatear_documentos(docs) -> str:
     return "\n\n---\n\n".join(
         f"[Fuente: {d.metadata.get('source', 'desconocida')}]\n{d.page_content}"
