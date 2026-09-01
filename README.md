@@ -197,9 +197,9 @@ El formateo automático se utiliza para mantener una estructura consistente del 
 
 ```text
 ├── data/                       # Documentos utilizados como fuente del RAG
-│   ├── Pagano 2006, correlacion y regresion.txt
-│   ├── Sampieri 2018, cap 3 planteamiento del problema en la ruta cuantitativa.txt
-│   └── Sampieri 2018, cap 7 diseño experimental.txt
+│   ├── Pagano 2006, correlacion y regresion.md
+│   ├── Sampieri 2018, cap 3 planteamiento del problema en la ruta cuantitativa.md
+│   └── Sampieri 2018, cap 7 diseño experimental.md
 ├── tests/                      # Pruebas automatizadas
 │   ├── test_chunking.py        # Tests del procesamiento y chunking
 │   ├── test_vector_db.py       # Tests de la base vectorial
