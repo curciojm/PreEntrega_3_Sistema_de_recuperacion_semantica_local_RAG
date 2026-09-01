@@ -140,7 +140,7 @@ Los logs permiten observar el funcionamiento del sistema durante la ejecución y
 
 Se incorporaron pruebas automatizadas utilizando `pytest` y `pytest-asyncio`.
 
-Las pruebas permiten verificar distintos componentes del sistema sin depender necesariamente de una ejecución real completa del pipeline.
+Las pruebas permiten verificar distintos componentes del sistema sin depender de llamadas reales al modelo.
 
 Se incluyen pruebas para:
 
