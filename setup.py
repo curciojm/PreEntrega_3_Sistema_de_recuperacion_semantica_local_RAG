@@ -5,7 +5,7 @@ from chunking import DocumentProcessor
 
 # Ingesta de los datos y procesamiento
 loader = DirectoryLoader(
-    "data", glob="*.txt", loader_cls=TextLoader, loader_kwargs={"encoding": "utf-8"}
+    "data", glob="*.md", loader_cls=TextLoader, loader_kwargs={"encoding": "utf-8"}
 )
 
 documentos_crudos = loader.load()
