@@ -57,7 +57,7 @@ El proyecto utiliza la siguiente variable de entorno:
 
 * `GOOGLE_API_KEY`
 
-Crear un archivo `.env` a partir de `.env.example` y completar la API key correspondiente, si no se encuentra configurada como variable de entorno del sistema
+Crear un archivo `.env` a partir de `.env.example` y completar la API key correspondiente; en caso de no encontrarse configurada como variable de entorno del sistema.
 
 La API key real no se incluye en el repositorio.
 
