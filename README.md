@@ -10,7 +10,7 @@ El proyecto implementa un pipeline RAG orientado a la consulta de documentos aca
 
 El sistema permite:
 
-* Ingestar documentos de texto en formato `.txt`.
+* Ingestar documentos de texto en formato `.md`.
 * Limpiar y dividir los documentos en fragmentos (*chunks*).
 * Medir el tamaño de los fragmentos utilizando tokens mediante `tiktoken`.
 * Generar embeddings de los fragmentos mediante `sentence-transformers/all-MiniLM-L6-v2`.
@@ -66,7 +66,7 @@ La API key real no se incluye en el repositorio.
 El procesamiento se organiza en las siguientes etapas:
 
 ```text
-Documentos .txt
+Documentos .md
       ↓
 Ingesta
       ↓
