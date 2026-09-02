@@ -189,6 +189,34 @@ Las pruebas asíncronas utilizan `pytest-asyncio` para permitir la ejecución de
 
 En las pruebas de integración de `main.py` se utiliza *mocking* para reemplazar temporalmente el retriever y la cadena LLM por implementaciones simuladas. De esta manera se puede verificar la lógica de orquestación sin realizar una llamada real al modelo.
 
+### Prueba de control de alucinaciones
+
+Se incluye una prueba mediante una **pregunta trampa** para comprobar que el sistema no genere información que no se encuentre en los documentos disponibles.
+
+La prueba se encuentra en:
+
+```text
+tests/test_hallucination.py
+```
+
+Para ejecutarla y visualizar la respuesta generada por el sistema, ubicarse en el directorio raíz del proyecto y ejecutar:
+
+```powershell
+python -m tests.test_hallucination
+```
+
+La pregunta utilizada deliberadamente no puede responderse a partir de los documentos disponibles. El comportamiento esperado es que el sistema indique:
+
+```text
+RESPUESTA: No tengo acceso a esa información en los documentos disponibles.
+```
+
+La prueba también puede ejecutarse como parte de la suite completa de tests:
+
+```powershell
+python -m pytest
+```
+
 ## Calidad y buenas prácticas
 
 Como mejora respecto de entregas anteriores, se incorporó Ruff como herramienta de análisis y formateo del código.
