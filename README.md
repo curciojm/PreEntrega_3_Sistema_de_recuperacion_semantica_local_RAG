@@ -248,7 +248,8 @@ El formateo automático se utiliza para mantener una estructura consistente del 
 │   ├── test_vector_db.py       # Tests de la base vectorial
 │   ├── test_chain.py           # Tests de la cadena LCEL
 │   ├── test_main.py            # Tests de la orquestación RAG
-│   └── test_errors.py          # Tests de clasificación de errores
+│   ├── test_errors.py          # Tests de clasificación de errores
+│   └── test_hallucination.py   # Tests de alucinaciones
 │
 ├── .env.example                # Ejemplo de variables de entorno
 ├── .gitignore
